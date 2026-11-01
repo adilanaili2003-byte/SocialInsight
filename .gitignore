@@ -1,0 +1,69 @@
+# 环境变量与敏感信息
+
+.env
+.env.*
+!.env.example
+
+# Python 虚拟环境
+
+.venv/
+venv/
+env/
+
+# Python 缓存文件
+
+**pycache**/
+*.py[cod]
+*$py.class
+
+# 测试缓存
+
+.pytest_cache/
+.coverage
+htmlcov/
+
+# 编辑器配置
+
+.vscode/
+.idea/
+
+# 系统文件
+
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# 日志文件
+
+*.log
+
+# 临时文件与备份
+
+*.tmp
+*.bak
+*.swp
+
+# Streamlit 缓存
+
+.streamlit/secrets.toml
+
+# 分析过程生成的数据
+
+data/processed/*
+!data/processed/.gitkeep
+
+# 生成的报告
+
+reports/*
+!reports/.gitkeep
+
+# 原始数据：默认不上传，仅保留演示数据
+data/raw/*
+!data/raw/test_comments.csv
+
+# 本地训练数据不上传
+data/raw/waimai_10k.csv
+
+# 临时测试输出
+test_temp_report/
+test_temp_risk/
