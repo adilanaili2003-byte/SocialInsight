@@ -337,8 +337,8 @@ if st.session_state.get("analysis_result") is not None:
     )
 
     st.caption(
-        "说明：情感得分由 SnowNLP 模型计算，"
-        "主题编号由 TF-IDF 与 KMeans 聚类得到。"
+        "说明：情感由规则引擎、TF-IDF + 逻辑回归模型、SnowNLP "
+        "三级流水线综合判断；主题编号由 TF-IDF 与 KMeans 聚类得到。"
     )
 
     # 10.4 主题聚类可视化

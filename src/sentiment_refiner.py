@@ -247,7 +247,8 @@ def apply_rule_overrides(text):
 
     if not text:
         return None
-        # 对尚未形成明确评价的表达，优先判定为中性
+
+    # 对尚未形成明确评价的表达，判定为中性
     uncertain_opinion_patterns = [
         "还不知道好不好",
         "不知道好不好",
