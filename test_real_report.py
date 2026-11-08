@@ -44,8 +44,12 @@ risk_result = analyze_risks(result_df)
 
 
 # 5. 整理报告数据
+sentiment_counts = sentiment_df["sentiment_label"].value_counts()
+
 analysis_result = {
     "total_count": risk_result["total_count"],
+    "positive_count": int(sentiment_counts.get("正面", 0)),
+    "neutral_count": int(sentiment_counts.get("中性", 0)),
     "negative_count": risk_result["negative_count"],
     "negative_ratio": risk_result["negative_ratio"],
     "risk_level": risk_result["risk_level"],

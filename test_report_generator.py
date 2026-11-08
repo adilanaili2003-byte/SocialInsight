@@ -12,6 +12,8 @@ def create_test_analysis():
 
     return {
         "total_count": 100,
+        "positive_count": 60,
+        "neutral_count": 10,
         "negative_count": 30,
         "negative_ratio": 0.3,
         "risk_level": "中风险",
@@ -41,6 +43,8 @@ def test_build_report_prompt():
     prompt = build_report_prompt(data)
 
     assert "100" in prompt
+    assert "正面评论数量" in prompt
+    assert "中性评论数量" in prompt
     assert "30.00%" in prompt
     assert "中风险" in prompt
     assert "产品质量" in prompt

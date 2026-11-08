@@ -23,6 +23,8 @@ def build_report_prompt(analysis_result):
 
     required_keys = [
         "total_count",
+        "positive_count",
+        "neutral_count",
         "negative_count",
         "negative_ratio",
         "risk_level",
@@ -42,6 +44,8 @@ def build_report_prompt(analysis_result):
 
 一、数据概况
 评论总数：{analysis_result['total_count']}
+正面评论数量：{analysis_result['positive_count']}
+中性评论数量：{analysis_result['neutral_count']}
 负面评论数量：{analysis_result['negative_count']}
 负面评论比例：{analysis_result['negative_ratio']:.2%}
 当前风险等级：{analysis_result['risk_level']}
@@ -63,8 +67,8 @@ def build_report_prompt(analysis_result):
 介绍本次评论数据的整体情况。
 
 ## 2. 情感分析
-分析正面、负面评论情况。
-注意：只能根据提供的数据进行分析，不得编造正面评论数量。
+分析正面、中性、负面评论的数量与占比。
+注意：正面、中性、负面数量均来自提供的数据，不得编造任何统计数字。
 
 ## 3. 主要讨论主题
 结合主题关键词和主题分布，概括用户主要讨论的问题。
