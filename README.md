@@ -1,8 +1,8 @@
-\# SocialInsight
+# SocialInsight
 
 
 
-\*\*基于大语言模型的社交媒体舆情分析系统\*\*
+**基于大语言模型的社交媒体舆情分析系统**
 
 
 
@@ -14,7 +14,7 @@ SocialInsight 是一个基于 Python 和大语言模型构建的舆情分析应�
 
 
 
-\## 一、项目功能
+## 一、项目功能
 
 
 
@@ -44,71 +44,71 @@ SocialInsight 是一个基于 Python 和大语言模型构建的舆情分析应�
 
 
 
-\## 二、技术栈
+## 二、技术栈
 
 
 
-\*\*开发语言\*\*
+**开发语言**
 
 
 
-\* Python 3.11
+* Python 3.11
 
 
 
-\*\*数据处理\*\*
+**数据处理**
 
 
 
-\* Pandas
+* Pandas
 
-\* NumPy
-
-
-
-\*\*自然语言处理\*\*
+* NumPy
 
 
 
-\* Jieba
-
-\* SnowNLP
-
-\* Scikit-learn
-
-\* TF-IDF
-
-\* Logistic Regression
-
-\* KMeans
+**自然语言处理**
 
 
 
-\*\*大语言模型\*\*
+* Jieba
+
+* SnowNLP
+
+* Scikit-learn
+
+* TF-IDF
+
+* Logistic Regression
+
+* KMeans
 
 
 
-\* DeepSeek-V4-Pro
-
-\* OpenAI SDK 兼容接口
+**大语言模型**
 
 
 
-\*\*前端与可视化\*\*
+* DeepSeek-V4-Pro
+
+* OpenAI SDK 兼容接口
 
 
 
-\* Streamlit
-
-\* Matplotlib
-
-\* Seaborn
-
-\* WordCloud
+**前端与可视化**
 
 
 
-\## 三、项目架构
+* Streamlit
+
+* Matplotlib
+
+* Seaborn
+
+* WordCloud
+
+
+
+## 三、项目架构
 
 
 
@@ -138,19 +138,19 @@ SocialInsight/
 
 ├── src/
 
-│   ├── data\_processor.py       # 数据清洗
+│   ├── data_processor.py       # 数据清洗
 
-│   ├── sentiment\_analyzer.py   # 情感分析
+│   ├── sentiment_analyzer.py   # 情感分析
 
-│   ├── sentiment\_model.py      # 本地情感模型
+│   ├── sentiment_model.py      # 本地情感模型
 
-│   ├── sentiment\_refiner.py    # 情感规则及LLM精调
+│   ├── sentiment_refiner.py    # 情感规则及LLM精调
 
-│   ├── topic\_analyzer.py       # 关键词提取与主题聚类
+│   ├── topic_analyzer.py       # 关键词提取与主题聚类
 
-│   ├── risk\_analyzer.py        # 舆情风险识别
+│   ├── risk_analyzer.py        # 舆情风险识别
 
-│   ├── report\_generator.py     # AI报告生成
+│   ├── report_generator.py     # AI报告生成
 
 │   │
 
@@ -162,7 +162,7 @@ SocialInsight/
 
 ├── app.py                      # Streamlit应用入口
 
-├── train\_sentiment\_model.py    # 情感模型训练脚本
+├── train_sentiment_model.py    # 情感模型训练脚本
 
 ├── requirements.txt            # 项目依赖
 
@@ -174,23 +174,23 @@ SocialInsight/
 
 
 
-\## 四、运行环境
+## 四、运行环境
 
 
 
-\* Windows 10 / 11
+* Windows 10 / 11
 
-\* Python 3.11
+* Python 3.11
 
-\* 建议使用虚拟环境管理项目依赖
-
-
-
-\## 五、安装与运行
+* 建议使用虚拟环境管理项目依赖
 
 
 
-\### 1. 克隆项目
+## 五、安装与运行
+
+
+
+### 1. 克隆项目
 
 
 
@@ -204,7 +204,7 @@ cd SocialInsight
 
 
 
-\### 2. 创建虚拟环境
+### 2. 创建虚拟环境
 
 
 
@@ -216,7 +216,7 @@ python -m venv .venv
 
 
 
-\### 3. 安装依赖
+### 3. 安装依赖
 
 
 
@@ -228,7 +228,7 @@ pip install -r requirements.txt
 
 
 
-\### 4. 配置环境变量
+### 4. 配置环境变量
 
 
 
@@ -238,17 +238,17 @@ pip install -r requirements.txt
 
 ```env
 
-OPENAI\_API\_KEY=your\_api\_key
+OPENAI_API_KEY=your_api_key
 
-OPENAI\_BASE\_URL=https://api.deepseek.com
+OPENAI_BASE_URL=https://api.deepseek.com
 
-OPENAI\_MODEL=deepseek-v4-pro
+OPENAI_MODEL=deepseek-v4-pro
 
 ```
 
 
 
-将 `your\_api\_key` 替换为自己的 DeepSeek API Key。
+将 `your_api_key` 替换为自己的 DeepSeek API Key。
 
 
 
@@ -256,7 +256,7 @@ OPENAI\_MODEL=deepseek-v4-pro
 
 
 
-\### 5. 启动项目
+### 5. 启动项目
 
 
 
@@ -280,7 +280,7 @@ http://localhost:8501
 
 
 
-\## 六、分析流程
+## 六、分析流程
 
 
 
@@ -360,7 +360,7 @@ http://localhost:8501
 
 
 
-\## 七、数据格式
+## 七、数据格式
 
 
 
@@ -392,43 +392,43 @@ http://localhost:8501
 
 
 
-\## 八、项目说明与局限性
+## 八、项目说明与局限性
 
 
 
-1\. 当前情感分类主要使用外卖评论数据训练的 TF-IDF + Logistic Regression 模型，模型在不同领域数据上的表现可能存在差异。
+1. 当前情感分类主要使用外卖评论数据训练的 TF-IDF + Logistic Regression 模型，模型在不同领域数据上的表现可能存在差异。
 
-2\. 情感规则主要用于识别部分明确的正面、负面和中性表达，复杂语境、反讽和上下文判断仍存在局限。
+2. 情感规则主要用于识别部分明确的正面、负面和中性表达，复杂语境、反讽和上下文判断仍存在局限。
 
-3\. 当前本地情感模型采用二分类训练数据，三分类结果中的中性类别主要通过规则和概率区间判断实现。
+3. 当前本地情感模型采用二分类训练数据，三分类结果中的中性类别主要通过规则和概率区间判断实现。
 
-4\. 主题聚类采用 TF-IDF + KMeans 方法，聚类结果会受到数据规模、文本质量和聚类参数影响。
+4. 主题聚类采用 TF-IDF + KMeans 方法，聚类结果会受到数据规模、文本质量和聚类参数影响。
 
-5\. 舆情风险识别主要依赖关键词匹配，风险词典和等级阈值仍有进一步优化空间。
+5. 舆情风险识别主要依赖关键词匹配，风险词典和等级阈值仍有进一步优化空间。
 
-6\. 当前系统通过 CSV 上传数据，不包含社交媒体平台的实时爬取功能。
-
-
-
-\## 九、后续优化方向
+6. 当前系统通过 CSV 上传数据，不包含社交媒体平台的实时爬取功能。
 
 
 
-\* 优化情感分类模型，提高跨领域文本分析能力。
-
-\* 完善复杂语境、否定句和反讽表达的识别。
-
-\* 优化主题聚类质量和主题标签生成。
-
-\* 扩展舆情风险词典及风险识别策略。
-
-\* 增加更多数据可视化和分析维度。
-
-\* 探索 Agent 工具调用与动态任务规划，实现更智能的舆情分析流程。
+## 九、后续优化方向
 
 
 
-\## 十、项目定位
+* 优化情感分类模型，提高跨领域文本分析能力。
+
+* 完善复杂语境、否定句和反讽表达的识别。
+
+* 优化主题聚类质量和主题标签生成。
+
+* 扩展舆情风险词典及风险识别策略。
+
+* 增加更多数据可视化和分析维度。
+
+* 探索 Agent 工具调用与动态任务规划，实现更智能的舆情分析流程。
+
+
+
+## 十、项目定位
 
 
 
