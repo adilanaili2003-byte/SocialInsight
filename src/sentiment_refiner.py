@@ -30,7 +30,7 @@ SYSTEM_PROMPT = (
 
 POSITIVE_SIGNALS = [
     "真香", "绝绝子", "好喝", "好吃", "很好吃",
-    "很香", "满意", "喜欢", "推荐", "回购",
+    "很好", "味道很好", "很香", "满意", "喜欢", "推荐", "回购",
     "值得购买", "值得推荐", "很不错", "非常不错",
     "赞不绝口", "质量很好", "服务很好",
     "效果很好", "体验很好", "非常满意",
@@ -46,7 +46,7 @@ NEGATIVE_SIGNALS = [
     "太贵", "不值得", "不推荐", "不会再买",
     "不会回购", "再也不买", "无效", "过敏",
     "被骗", "欺骗", "想吐", "不能用",
-    "完全不能用", "质量差", "态度差",
+    "完全不能用", "破损", "质量差", "态度差",
     "太慢了", "非常难用", "不好用",
     "不值得购买", "不值得推荐", "太失望了",
     "体验很差", "非常糟糕", "令人失望"
@@ -71,6 +71,13 @@ CONTRAST_WORDS = [
 NEGATION_PREFIXES = [
     "不", "没", "并不", "并没有",
     "不是", "并非", "谈不上"
+]
+
+# 程度副词：用于识别“不是很”“不太”等否定+程度结构
+DEGREE_WORDS = [
+    "很", "太", "非常", "特别", "比较",
+    "有点", "挺", "蛮", "超级", "十分",
+    "相当", "极其"
 ]
 
 # 明确中性表达
@@ -135,6 +142,20 @@ def _contains_signal(text, signals):
     return any(signal in text for signal in signals)
 
 
+def _is_negated(prefix):
+    """判断信号前文本是否以否定词（或“否定词+程度副词”）结尾。"""
+    for word in NEGATION_PREFIXES:
+        if prefix.endswith(word):
+            return True
+
+    for word in NEGATION_PREFIXES:
+        for degree in DEGREE_WORDS:
+            if prefix.endswith(word + degree):
+                return True
+
+    return False
+
+
 def _get_sentiment_from_text(text):
     """
     识别文本中明确的正面或负面表达。
@@ -152,10 +173,10 @@ def _get_sentiment_from_text(text):
         if position == -1:
             continue
 
-        prefix = text[max(0, position - 3):position]
+        prefix = text[max(0, position - 4):position]
 
         # 处理“不好吃”“不是很好”等否定表达
-        if any(prefix.endswith(word) for word in NEGATION_PREFIXES):
+        if _is_negated(prefix):
             negative_found.append(signal)
         else:
             positive_found.append(signal)
