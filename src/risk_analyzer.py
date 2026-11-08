@@ -2,6 +2,15 @@ import pandas as pd
 import json
 from pathlib import Path
 
+# 风险等级阈值（按负面评论占比）
+# 说明：当前风险等级仅由负面评论占比决定，是项目初期的简化规则。
+# 注意「风险 ≠ 负面情感」：舆情风险还应综合考虑命中的风险类别及其严重程度
+# （例如「过敏 / 被骗」比「价格贵」更需要关注）、负面情绪强度、评论影响力等因素。
+# 后续可在风险等级判断中引入风险类别权重与情感强度，使结果更贴合真实舆情。
+HIGH_RISK_THRESHOLD = 0.5
+MEDIUM_RISK_THRESHOLD = 0.2
+
+
 # 舆情风险关键词词典
 RISK_KEYWORDS = {
     "产品质量": [
@@ -148,11 +157,11 @@ def analyze_risks(df):
         .to_dict()
     )
 
-    # 简单风险等级判断
-    if negative_ratio >= 0.5:
+    # 风险等级判断（按负面评论占比，阈值说明见模块顶部）
+    if negative_ratio >= HIGH_RISK_THRESHOLD:
         risk_level = "高风险"
 
-    elif negative_ratio >= 0.2:
+    elif negative_ratio >= MEDIUM_RISK_THRESHOLD:
         risk_level = "中风险"
 
     else:
